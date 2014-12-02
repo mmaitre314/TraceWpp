@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean);*.tmh</ExtensionsToDeleteOnClean>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <CoreCppClean Include="@(CoreCppClean);$(ProjectDir)TraceWpp">
+      <FilePatternsToDelete>*.tmh</FilePatternsToDelete>
+    </CoreCppClean>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TraceWppSources Include="@(ClCompile)" Exclude="pch.cpp" />
+  </ItemGroup>
+
+  <Target Name="EnsureWDK" BeforeTargets="TraceWpp">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(WindowsSdkDir)bin\WppConfig\Rev1')" Text="WDK missing to generate .tmh trace file headers. Please download from http://msdn.microsoft.com/en-us/windows/hardware/hh852365.aspx ." />
+  </Target>
+
+  <Target Name="TraceWpp" BeforeTargets="ClCompile" Inputs="@(TraceWppSources)" Outputs="@(TraceWppSources -> '%(Filename)%(extension).tmh')">
+    <Message Importance="high" Text="Creating .tmh trace file headers"/>
+    <Exec Command="cd $(ProjectDir)" />
+    <Exec Command="if not exist TraceWpp mkdir TraceWpp" />
+    <Exec Command="%22$(WindowsSdkDir)bin\x86\tracewpp.exe%22 %22-scan:$(ProjectDir)TraceWpp\TraceWpp.h%22 %22-odir:$(ProjectDir)TraceWpp%22 -dll %22-defwpp:$(WindowsSdkDir)bin\WppConfig\Rev1\defaultwpp.ini%22 %22-cfgdir:$(WindowsSdkDir)bin\WppConfig\Rev1%22 -preserveext:.cpp @(TraceWppSources, ' ')" />
+  </Target>
+
+</Project>

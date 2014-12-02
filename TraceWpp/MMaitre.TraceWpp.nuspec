@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MMaitre.TraceWpp</id>
+    <title>WPP Tracing</title>
+    <version>$NuGetVersion$</version>
+    <authors>Matthieu Maitre</authors>
+    <owners>Matthieu Maitre</owners>
+    <licenseUrl>https://raw.githubusercontent.com/mmaitre314/VideoEffect/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mmaitre314/TraceWpp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>High-performance tracing for C++ Windows/Windows Phone Store apps.</summary>
+    <description>Enables Windows trace PreProcessor (WPP) in Windows/Windows Phone Store apps. Traces are mostly unstructured (aka printf-style tracing). For documentation see https://github.com/mmaitre314/TraceWpp .</description>
+    <copyright>Copyright © 2014, Matthieu Maitre. All rights reserved.</copyright>
+    <tags>Native WinRT WPP Tracing</tags>
+  </metadata>
+  <files>
+    <file src="TraceWpp.h" target="content\TraceWpp" />
+    <file src="MMaitre.TraceWpp.targets" target="build\" />
+  </files>
+</package>

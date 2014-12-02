@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="TraceWpp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pack.cmd" />
+    <None Include="publish.cmd" />
+    <None Include="MMaitre.TraceWpp.nuspec" />
+    <None Include="MMaitre.TraceWpp.targets" />
+  </ItemGroup>
+</Project>
