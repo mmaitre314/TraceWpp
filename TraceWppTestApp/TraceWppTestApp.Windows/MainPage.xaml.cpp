@@ -6,8 +6,6 @@
 #include "pch.h"
 #include "MainPage.xaml.h"
 
-#include "TraceWpp\MainPage.xaml.cpp.tmh"
-
 using namespace TraceWppTestApp;
 
 using namespace Platform;
@@ -25,15 +23,5 @@ using namespace Windows::UI::Xaml::Navigation;
 
 MainPage::MainPage()
 {
-    WPP_INIT_TRACING(L"TraceWppTestApp.Windows");
-
-    Trace(L"@%p Starting", (void*)this);
-
     InitializeComponent();
-
-    auto obj = ref new TraceWppTestDll::Class1();
-
-    Trace(L"@%p Stopping", (void*)this);
-
-    WPP_CLEANUP();
 }

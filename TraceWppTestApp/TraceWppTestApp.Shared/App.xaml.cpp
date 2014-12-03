@@ -6,6 +6,8 @@
 #include "pch.h"
 #include "MainPage.xaml.h"
 
+#include "TraceWpp\App.xaml.cpp.tmh"
+
 using namespace TraceWppTestApp;
 
 using namespace Platform;
@@ -31,8 +33,13 @@ using namespace Windows::UI::Xaml::Navigation;
 /// </summary>
 App::App()
 {
+    WPP_INIT_TRACING(L"TraceWppTestApp");
+    Trace(L"@%p Starting", (void*)this);
+
 	InitializeComponent();
 	Suspending += ref new SuspendingEventHandler(this, &App::OnSuspending);
+
+    auto obj = ref new TraceWppTestDll::Class1();
 }
 
 /// <summary>
@@ -138,5 +145,6 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ e)
 	(void) sender;	// Unused parameter
 	(void) e;		// Unused parameter
 
-	// TODO: Save application state and stop any background activity
+    Trace(L"@%p Stopping", (void*)this);
+    WPP_CLEANUP();
 }
