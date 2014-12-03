@@ -33,7 +33,7 @@
     <ApplicationType>Windows Phone</ApplicationType>
     <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
     <ConvergedProjectType>CodeSharingWindowsRuntimeComponent</ConvergedProjectType>
-    <NuGetPackageImportStamp>c29392c7</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>8f31a875</NuGetPackageImportStamp>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,12 +139,12 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" />
+    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets'))" />
   </Target>
 </Project>

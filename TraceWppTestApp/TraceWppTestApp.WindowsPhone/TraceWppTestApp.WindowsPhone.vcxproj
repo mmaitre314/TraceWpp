@@ -67,7 +67,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <NuGetPackageImportStamp>0260f5e4</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>c805ec0b</NuGetPackageImportStamp>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -124,21 +126,21 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\TraceWppTestDll\TraceWppTestDll.WindowsPhone\TraceWppTestDll.WindowsPhone.vcxproj">
       <Project>{1c61afdd-ab03-4280-b6af-12347cbc6aef}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" />
+    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets'))" />
   </Target>
 </Project>

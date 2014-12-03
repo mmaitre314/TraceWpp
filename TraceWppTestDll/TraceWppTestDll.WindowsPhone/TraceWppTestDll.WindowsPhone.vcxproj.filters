@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="TraceWpp">
-      <UniqueIdentifier>{ddc25fa7-8fc2-403e-9490-ecde9cd6df96}</UniqueIdentifier>
+      <UniqueIdentifier>{6015dc4f-d4ac-4ac7-8530-b9e874425b4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

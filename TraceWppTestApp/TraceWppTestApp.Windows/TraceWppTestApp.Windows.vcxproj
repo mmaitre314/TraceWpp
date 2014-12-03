@@ -94,7 +94,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <PackageCertificateKeyFile>TraceWppTestApp.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <NuGetPackageImportStamp>9b248e01</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>b03f661f</NuGetPackageImportStamp>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -187,12 +189,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" />
+    <Import Project="..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets" Condition="Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.3\build\MMaitre.TraceWpp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MMaitre.TraceWpp.1.0.4\build\MMaitre.TraceWpp.targets'))" />
   </Target>
 </Project>
