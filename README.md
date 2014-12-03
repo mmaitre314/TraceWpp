@@ -91,48 +91,49 @@ Disable 'Edit and Continue' used in Debug builds as this breaks WPP trace macro 
 
 ## Adding traces
 
-similar to printf():
+Trace macros use format strings similar to printf():
 
 ```cpp
 Trace(L"@%p Starting", this);
 ```
 
-If the object traced is a C++/CX one, the $this$ pointer needs to be cast to $void*$.
+One caveat: for C++/CX objects the this pointer needs to be cast to void* in trace calls.
 
 ## Recording traces
 
 ### Windows
 
-run elevated:
+The logman.exe tool under %windir%\system32 turns trace providers on and off. To start tracing run the following command in an elevated command line:
 
 ```
 logman.exe create trace mytrace -p {B5DBB673-AB73-48A3-B004-B8902FA191C3} 0xff 5 -ets -o trace.etl
 ```
 
-where {B5DBB673-AB73-48A3-B004-B8902FA191C3} needs to be replaced by the GUID of the event provider. The '-pf' option allows passing a list of providers stored in a config file with one set of 'GUID flags level' per line.
+Replacing the '-p' option by '-pf' allows controlling more than one provider. The list of providers is stored in a config file with one set of 'GUID flags level' per line.
+
+To stop tracing run
 
 ```
 logman.exe stop mytrace -ets
 ```
 
-logman.exe is located under %windir%\system32 and typically already in the path.
-
 ### Windows Phone
 
-Field Medic [blog]({{ site.url }}/2014/12/01/field-medic-custom-logging.html)
-[profile]
+[Field Medic](http://www.windowsphone.com/en-us/store/app/field-medic/73c58570-d5a7-46f8-b1b2-2a90024fc29c) records traces on Windows Phone. For more details see this [blog](http://mmaitre314.github.io/2014/12/01/field-medic-custom-logging.html). A WPRP profile controlling the trace provider defined above is available [here](http://mmaitre314.github.io/download/TraceWpp.wprp).
 
 ## Formatting traces
 
-Once recorded, traces need to be formatted to convert binary trace files (.etl) to text files (.log). The process is the same whether traces were recorded on Windows or Windows Phone.
+Once recorded, traces need to be converted from binary trace files (.etl) to text files (.log). The process is the same whether traces were recorded on Windows or Windows Phone.
 
-Extract .tmf trace format files from .pdb symbol files:
+Two tools are needed from the Windows SDK: tracepdb.exe and tracefmt.exe. They are located in '%ProgramFiles%\Windows Kits\8.1\bin\x86' on 32b machines and in '%ProgramFiles(x86)%\Windows Kits\8.1\bin\x64' on 64b machines.
+
+First extract .tmf trace format files from .pdb symbol files:
 
 ```
 tracepdb.exe -f *.pdb -p c:\Symbols\TraceFormat
 ```
 
-Format .etl binary traces into text traces:
+The format the .etl binary traces into text traces:
 
 ```
 set TRACE_FORMAT_SEARCH_PATH=c:\Symbols\TraceFormat
@@ -140,10 +141,8 @@ set TRACE_FORMAT_PREFIX=[%9!d!]%8!04X!.%3!04X! %4!s! %!FUNC!
 tracefmt.exe -f trace.etl -o trace.log
 ```
 
-The tools are available in the Windows SDK, under '%ProgramFiles%\Windows Kits\8.1\bin\x86' on 32b machines and '%ProgramFiles(x86)%\Windows Kits\8.1\bin\x64' on 64b machines.
-
-TRACE_FORMAT_PREFIX can be customized using the format specifiers documented [here](http://msdn.microsoft.com/en-us/library/windows/hardware/ff553941(v=vs.85).aspx). The format used above is '[CpuNumber]ProcessID.ThreadID Time FunctionName'.
+The TRACE_FORMAT_PREFIX environment variable can be customized using the format specifiers documented [here](http://msdn.microsoft.com/en-us/library/windows/hardware/ff553941(v=vs.85).aspx). The format used above is '[CpuNumber]ProcessID.ThreadID Time FunctionName'.
 
 ## Analysing traces
 
-[TextAnalysisTool.NET](http://dlaa.me/blog/post/3450647) , [MF](http://blogs.msdn.com/b/mf/archive/2010/09/09/analyzing-media-foundation-traces.aspx)
+[TextAnalysisTool.NET](http://dlaa.me/blog/post/3450647) can quickly filter and color traces using string patterns. See this [blog](http://blogs.msdn.com/b/mf/archive/2010/09/09/analyzing-media-foundation-traces.aspx) for more details.
