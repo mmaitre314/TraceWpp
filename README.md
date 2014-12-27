@@ -1,3 +1,5 @@
+[![NuGet package](http://mmaitre314.github.io/images/nuget.png)](https://www.nuget.org/packages/MMaitre.TraceWpp/)
+
 WPP Tracing for C++ Universal Store apps
 ========
 
