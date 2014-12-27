@@ -1,37 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="TraceWpp : High-performance tracing for C++ Windows/Windows Phone Store apps">
+    <title>TraceWpp by mmaitre314</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>TraceWpp</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mmaitre314/TraceWpp">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mmaitre314/TraceWpp/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mmaitre314/TraceWpp/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mmaitre314/TraceWpp">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">TraceWpp</h1>
-          <h2 id="project_tagline">High-performance tracing for C++ Windows/Windows Phone Store apps</h2>
+      <section>
+        <div id="title">
+          <h1>TraceWpp</h1>
+          <p>High-performance tracing for C++ Windows/Windows Phone Store apps</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mmaitre314">mmaitre314</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/mmaitre314/TraceWpp/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/mmaitre314/TraceWpp/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <p><a href="https://www.nuget.org/packages/MMaitre.TraceWpp/"><img src="http://mmaitre314.github.io/images/nuget.png" alt="NuGet package"></a></p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p>The <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff556204(v=vs.85).aspx">Windows trace PreProcessor</a> (WPP) provides high-performance tracing for C++ apps. It has low impact on binary size and CPU usage -- even when tracing is turned on -- which makes it suitable for both Debug and Release builds. It is however difficult to set up, especially in Universal Windows/Windows Phone Store apps. This project tries to address that issue.</p>
+<p>The <a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff556204(v=vs.85).aspx">Windows trace PreProcessor</a> (WPP) provides high-performance tracing for C++ apps. It has low impact on binary size and CPU usage -- even when tracing is turned on -- which makes it suitable for both Debug and Release builds. It is however difficult to set up, especially in Universal Windows/Windows Phone Store apps. This project tries to address that issue.</p>
 
 <h2>
 <a id="initial-setup" class="anchor" href="#initial-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup</h2>
@@ -172,17 +181,9 @@ tracefmt.exe -f trace.etl -o trace.log
 
 <p><a href="http://dlaa.me/blog/post/3450647">TextAnalysisTool.NET</a> can quickly filter and color traces using string patterns. See this <a href="http://blogs.msdn.com/b/mf/archive/2010/09/09/analyzing-media-foundation-traces.aspx">blog</a> for more details.</p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">TraceWpp maintained by <a href="https://github.com/mmaitre314">mmaitre314</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
